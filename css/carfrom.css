@@ -23,8 +23,8 @@
 .main{
     border-radius: 50px;
     box-shadow: 8px 8px 30px rgb(24, 24, 24);
-    width: 70%;
-    height: 80%;
+    width: 80%;
+    height: 90%;
     background-color: white;
 }
 .content{
@@ -46,7 +46,8 @@
 .right{
     border-top-right-radius:50px ;
     border-bottom-right-radius:50px ;
-    width: 70%;
+    width: 80%;
+  
    
     height: 100%;
 }
@@ -67,7 +68,7 @@
 }
 .righttop{
     width: 100%;
-    height: 30%;
+    height: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,7 +80,7 @@
     text-shadow: 2px 2px 2px black;
 }
 .rigthbottom{
-    margin-top:8%;
+ 
     width: 100%;
     height: 70%;
     display: flex;
@@ -93,18 +94,19 @@
 
 }
 .from{
-    width: 40%;
-    height: 80%;
+    width: 90%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+   
 }
 
 
 .inputfrom{
    width: 100%;
-   padding: 6px;
-   margin: 5px;
+   padding: 11px;
+   
    font-size: 1rem;
 }
 .gender{
@@ -133,32 +135,22 @@ select{
     
 }
 .botton1{
-    margin-top: 5%;
-    margin-bottom: 5%;
-    width: 100%;
-
-   
+    
     display: flex;
     justify-content: center;
     align-items: center;
     
 }
-#btn1{
-  
-    border-radius: 20px;
-    outline: none;
-    border-color: #00A3FE;
-    color: #00A3FE;
-    width: 70%;
-    padding: 10px;
 
-}#btn1{
+
+#btn1{
    
     border-radius: 20px;
     outline: none;
     background-color:  #00A3FE;
     color: white;
-    width: 70%;
+    width: 30%;
+    height: 35%;
     padding: 10px;
     border-color: #00A3FE 2px solid;
 
@@ -170,10 +162,54 @@ select{
     outline: none;
     border-color: #00A3FE 2px solid;
     color: #00A3FE;
-    width: 70%;
+    width: 30%;
+    height: 35%;
     padding: 10px;
     background-color: white;
     transition: 0.5s;
    
 
+}
+form{
+   
+    width: 100%;
+    height: 100%; 
+   
+}
+.category{
+   
+    height: 10%;
+    width: 20%;
+}
+.category1{
+   
+    height: 10%;
+    width: 28%;
+}
+.category2{
+   
+  
+    width: 25%; 
+     height: 30%;
+}
+select{
+    font-size: 1.2rem;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+}
+.inneritem{
+    width: 100%;
+    height: 25%; 
+    display: flex;
+    justify-content: space-around;
+}
+.date{
+    text-align: center;
+    display: block;
+    font-size: 1.1rem;
+    width: 100%;
+    height: 100%;
+    
+    
 }
