@@ -1,3 +1,7 @@
+<?php 
+include "db_connect.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,25 +40,25 @@
           <div class="rigthbottom">
             <div class="from">
               <form action="index.php" method="POST">
-                <input type="text" class="inputfrom" id="name" name="name" placeholder="Enter Name" />
+                <input type="text" class="inputfrom" id="name" name="name" placeholder="Enter Name" required />
 
-                <input type="email" class="inputfrom" id="name" name="name" placeholder="Enter Email address" />
+                <input type="email" class="inputfrom" id="name" name="email" placeholder="Enter Email address" required/>
 
-                <input type="text" class="inputfrom" id="name" name="name" placeholder="Enter Phone number" />
+                <input type="text" class="inputfrom" id="name" name="mobile" placeholder="Enter Phone number" required />
 
-                <input type="text" class="inputfrom" id="name" name="name" placeholder="address" />
+
                 <label for="carnumber"> Have You more than one car ?</label>
                 <div class="gender" id="carnumber">
 
                   &nbsp YES &nbsp
-                  <input type="radio" name="carnumber" id="yes" value="yes" name="yes" />
+                  <input type="radio" name="carnumber" id="yes" value="yes" name="yes" required />
                   &nbsp NO &nbsp
                   <input type="radio" name="carnumber" id="no" value="no" name="no" />
                 </div>
                 <label for="carnumber"> Gender</label>
                 <div class="gender" id="gender1">
                   &nbsp Male &nbsp
-                  <input type="radio" name="gender" id="male" value="male" name="female" />
+                  <input type="radio" required name="gender" id="male" value="male" name="female" />
                   &nbsp Female &nbsp
                   <input type="radio" name="gender" id="female" value="female" name="female" />
                 </div>
@@ -84,19 +88,11 @@
 
 
                 </select>
+                  <div class="botton1">
+                    <input type="submit" value="Next" id="btn1" name="next" />
+                  </div>
+              
 
-                <div class="botton1">
-                  <input type="submit" value="Next" id="btn1" name="next" onclick="myFunction()" />
-                </div>
-
-                <script>
-                  function myFunction() {
-                    let check = confirm("I am an alert box!");
-                    if (check == true) {
-
-                    }
-                  }
-                </script>
               </form>
             </div>
           </div>
@@ -107,11 +103,29 @@
 </body>
 
 </html>
-<?php
-$next = $_POST('next');
-if (isset($next)) {
-  
-  header("location:carfrom.php");
-}
 
+<?php
+
+$name = $_POST['name'];
+$carnumber = $_POST['carnumber'];
+$email = $_POST['email'];
+$mobile = $_POST['mobile'];
+$gender = $_POST['gender'];
+$city = $_POST['city'];
+$worktype = $_POST['worktype'];
+$Designation = $_POST['Designation'];
+if (isset($_POST['next'])) {
+
+  $sql = "INSERT INTO `customrer`(`Name`, `Email`, `Phone`, `Have you more than one care`, `Gender`, `City`, `WorkType`, `Designation`) VALUES ('$name','$email','$mobile','$carnumber','$gender','$city','$worktype','$Designation')";
+
+  if ($con->query($sql) === TRUE) {
+    echo "<script>
+    window.location.href='carfrom.php';</script>";
+    echo "Work successfully";
+  } else {
+    echo "Error: " . $sql . "<br>" . $con->error;
+  }
+
+  $con->close();
+}
 ?>

@@ -165,7 +165,7 @@
                   </div>
               </div>
               <div class="inneritem">
-                 <input type="submit" value="Submit" class="botton1" id="btn1">
+                 <input type="submit" value="Submit" class="botton1" id="btn2">
               </div>
                   </div>
                 </form>
