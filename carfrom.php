@@ -1,3 +1,9 @@
+<?php
+include "db_connect.php";
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,11 +41,11 @@
           </div>
           <div class="rigthbottom">
             <div class="from">
-              <form action="">
+              <form action="carfrom.php" method="POST">
                 <div class="inneritem">
                   <div class="category">
                     <label for="brand">Brand</label>
-                    <select id="brand">
+                    <select id="brand" name="brand">
                       <option value="Honda">Honda</option>
                       <option value="TATA">TATA</option>
                       <option value="BAJAJ">BAJAJ</option>
@@ -53,11 +59,11 @@
                   </div>
                   <div class="category">
                     <label for="brand">Model</label>
-                    <input type="text" class="inputfrom" placeholder="Enter car model name">
+                    <input name="model" type="text" class="inputfrom" placeholder="Enter car model name">
                   </div>
                   <div class="category">
                     <label for="caretype">Car type</label>
-                    <select>
+                    <select id="caretype" name="caretype">
                       <option value="Van">Van</option>
                       <option value="MICRO">MICRO</option>
                       <option value="SEDAN">SEDAN</option>
@@ -70,7 +76,7 @@
                   </div>
                   <div class="category">
                     <label for="cc">CC</label>
-                    <select>
+                    <select id="cc" name="cc">
                       <option value="Up to 1000 cc">Up to 1000 cc</option>
                       <option value="1001 to 1300 cc">1001 to 1300 cc</option>
                       <option value="1301 to 2000 cc">1301 to 2000 cc</option>
@@ -84,7 +90,7 @@
                 <div class="inneritem">
                   <div class="category1">
                     <label for="dualfuel">Dual Fuel System </label>
-                    <select>
+                    <select id="dualfuel" name="dualfuel">
                       <option value="YES">YES</option>
                       <option value="NO">NO</option>
                     </select>
@@ -112,7 +118,7 @@
 
                   <div class="category1">
                     <label for="carproblem">Problem of car</label>
-                    <select>
+                    <select id="carproblem" name="carproblem">
                       <option value="Only For Wash">Only For Wash</option>
                       <option value="AC Problem">AC Problem</option>
                       <option value="Start Problem">Start Problem</option>
@@ -129,8 +135,9 @@
 
                 <div class="inneritem">
                   <div class="category1">
-                    <label for="numberofcar">How many time taken services before</label>
-                    <select>
+                    <label for="ServiceTakeTimeCount">How many time taken services before</label>
+                    <select id="ServiceTakeTimeCount" name="ServiceTakeTimeCount">
+                      <option value="0">0</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
@@ -145,17 +152,18 @@
                   </div>
 
                   <div class="category1">
-                    <label for="numberofcar">Engine Type</label>
-                    <select>
+                    <label for="enginetype">Engine Type</label>
+                    <select id="enginetype" name="enginetype">
                       <option value="diesel">Diesel</option>
                       <option value="petrol">Petrol</option>
-                      <option value="CNG">CNG</option>
+                      <option value="CNG">CNG </option>
 
                     </select>
+
                   </div>
                 </div>
                 <div class="inneritem">
-                  <input type="submit" value="Submit" class="botton1" id="btn2">
+                  <input type="submit" name="submit" value="Submit" class="botton1" id="btn2">
                 </div>
             </div>
             </form>
@@ -168,3 +176,70 @@
 </body>
 
 </html>
+
+<?php
+
+$brand = $_POST['brand'];
+$model = $_POST['model'];
+$caretype = $_POST['caretype'];
+$cc = $_POST['cc'];
+$dualfuel = $_POST['dualfuel'];
+$date1 = $_POST['date1'];
+$carproblem = $_POST['carproblem'];
+$ServiceTakeTimeCount  = $_POST['ServiceTakeTimeCount'];
+$enginetype  = $_POST['enginetype'];
+
+
+if (isset($_POST['submit'])) {
+
+
+  if ($ServiceTakeTimeCount == 0) {
+    $discount = 0;
+  } else if ($ServiceTakeTimeCount == 1) {
+    $discount = 100;
+  } else if ($ServiceTakeTimeCount == 2) {
+    $discount = 200;
+  } else if ($ServiceTakeTimeCount == 3) {
+    $discount = 300;
+  } else if ($ServiceTakeTimeCount == 4) {
+    $discount = 400;
+  } else if ($ServiceTakeTimeCount == 5) {
+    $discount = 500;
+  } else if ($ServiceTakeTimeCount == 5) {
+    $discount = 500;
+  } else if ($ServiceTakeTimeCount == 6) {
+    $discount = 600;
+  } else if ($ServiceTakeTimeCount == 7) {
+    $discount = 700;
+  } else if ($ServiceTakeTimeCount == 8) {
+    $discount = 800;
+  } else {
+    $discount = 1000;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  $sqlcar = "INSERT INTO `cardetail`(`Brand`, `Model`, `CarType`, `CC`, `Dual Fuel System`, `Booking date`, `Problem of car`, `ServiceTakeTimeCount`, `EngineType`, `Discount`) VALUES ('$brand','$model ','$caretype','$cc','$dualfuel','$date1','$carproblem','$ServiceTakeTimeCount','$enginetype ','$discount')";
+
+  if ($con->query($sqlcar) === TRUE) {
+    echo "<script>
+    window.location.href='carfrom.php';</script>";
+    echo "Work successfully";
+  } else {
+    echo "Error: " . $sqlcar . "<br>" . $con->error;
+  }
+
+  $con->close();
+}
+?>
