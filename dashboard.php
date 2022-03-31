@@ -111,6 +111,37 @@ include "db_connect.php";
 
 
 
+
+                    
+                    <div class="box">
+
+                        <?php
+                        $selectquery = "SELECT * FROM customrer ";
+                        $query = mysqli_query($con, $selectquery);
+                        $num = mysqli_num_rows($query);
+                        echo $num;
+                        // res=mysqli_fetch_array(query);
+                        // while ($res = mysqli_fetch_array($query)) {
+                        //     echo $res['Name'];
+                        // }
+                        ?>
+                    </div>
+                    <div class="box">
+
+                        <?php
+                        $selectquery = "SELECT * FROM customrer ";
+                        $query = mysqli_query($con, $selectquery);
+                        $num = mysqli_num_rows($query);
+                        echo $num;
+                        // res=mysqli_fetch_array(query);
+                        // while ($res = mysqli_fetch_array($query)) {
+                        //     echo $res['Name'];
+                        // }
+                        ?>
+                    </div>
+
+
+
                 </div>
                 <div class="category">
 
@@ -147,13 +178,13 @@ include "db_connect.php";
                                 labels: labels,
                                 datasets: [{
                                     label: 'Designation',
-                                    backgroundColor: ["red", "green", "orange", "black", "#00a3fe"],
+                                    backgroundColor: ["#00a3fe", "green", "orange", "black", ],
 
-                                   <?php
-                                   include "designation.php";
-                                   ?>
+                                    <?php
+                                    include "designation.php";
+                                    ?>
 
-                                    data: [<?php echo "$business" ?>,<?php echo "$gjob" ?>,<?php echo "$pjob" ?>,<?php echo "$student" ?>],
+                                    data: [<?php echo "$business" ?>, <?php echo "$gjob" ?>, <?php echo "$pjob" ?>, <?php echo "$student" ?>],
                                 }]
                             };
 
@@ -166,9 +197,13 @@ include "db_connect.php";
                                 labels: labelpie,
                                 datasets: [{
                                     label: 'Designation',
-                                    backgroundColor: ["red", "green", "orange", "black", "#00a3fe"],
+                                    backgroundColor: ["#e32636", "#ffbf00", "#00ffff", "#000000", "#0000ff","green","#00a3fe"],
 
-                                    data: [33, 130, 5, 32, 230, 330, 435],
+                                    <?php
+                                    include "city.php";
+                                    ?>
+
+                                    data: [<?php echo "$dhaka" ?>, <?php echo "$khulna" ?>, <?php echo "$rajshahi" ?>, <?php echo "$chattigram" ?>,<?php echo "$barishal" ?>,<?php echo "$sylhet" ?>,<?php echo "$mymenesing" ?>],
                                 }]
                             };
 
