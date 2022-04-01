@@ -303,6 +303,7 @@ include "db_connect.php";
 
                                 display: true,
                                 text: (ctx) => 'Point Style: ' + ctx.chart.data.datasets[0].pointStyle,
+                                
 
 
                             },
@@ -352,9 +353,9 @@ include "db_connect.php";
                 <section class="category">
 
 
-                    <div id="box1">
+                    <div id="box2">
                         <div>
-                            <canvas id="duoChart" style=" width: 500px;height: 400px;"></canvas>
+                            <canvas id="duoChart" style=" width: 300px;height: 400px;"></canvas>
 
                         </div>
 
@@ -399,13 +400,18 @@ include "db_connect.php";
 
 
                             const config3 = {
-                                type: 'duo',
+                                type: 'polarArea',
+                                data: data,
+                                options: {}
+                            };
+                            const config5 = {
+                                type: 'radar',
                                 data: data,
                                 options: {}
                             };
                             const config4 = {
 
-                                type: 'pie',
+                                type: 'doughnut',
                                 data: data3,
                                 options: {}
                             };
@@ -413,7 +419,7 @@ include "db_connect.php";
                         <script>
                             const duoChart = new Chart(
                                 document.getElementById('duoChart'),
-                                config2
+                                config3
                             );
                         </script>
 
@@ -425,7 +431,7 @@ include "db_connect.php";
 
 
 
-                    <div id="box2">
+                    <div id="box1">
 
                         <div>
                             <canvas id="lastChart" style=" width: 300px;height: 400px;"></canvas>
