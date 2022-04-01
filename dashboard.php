@@ -98,7 +98,7 @@ include "db_connect.php";
                     <div class="box">
 
                         <?php
-                        $selectquery = "SELECT * FROM customrer ";
+                        $selectquery = "SELECT * FROM cardetail WHERE MONTH('4')";
                         $query = mysqli_query($con, $selectquery);
                         $num = mysqli_num_rows($query);
                         echo $num;
@@ -178,7 +178,7 @@ include "db_connect.php";
                             const data = {
                                 labels: labels,
                                 datasets: [{
-                                    label: 'Designation',
+                                    label: 'User Designation',
                                     backgroundColor: ["#00a3fe", "green", "orange", "black", ],
 
                                     <?php
@@ -199,7 +199,7 @@ include "db_connect.php";
                                 labels: labelpie,
                                 datasets: [{
                                     label: 'Designation',
-                                    backgroundColor: ["#e32636", "#ffbf00", "#00ffff", "#000000", "#0000ff", "green", "#00a3fe"],
+                                    backgroundColor: ["#00a3fe", "#ffbf00", "#9132a8", "#000000", "#0000ff", "green", "red"],
 
                                     <?php
                                     include "city.php";
@@ -220,7 +220,7 @@ include "db_connect.php";
                             };
                             const config1 = {
 
-                                type: 'pie',
+                                type: 'doughnut',
                                 data: data1,
                                 options: {}
                             };
@@ -303,7 +303,7 @@ include "db_connect.php";
 
                                 display: true,
                                 text: (ctx) => 'Point Style: ' + ctx.chart.data.datasets[0].pointStyle,
-                                
+
 
 
                             },
@@ -364,10 +364,15 @@ include "db_connect.php";
 
                         <script>
                             const labelduo = [
-                                'Business',
-                                'Givernment Job Holder',
-                                'Private Job Holder',
-                                'Student',
+                                'Honda',
+                                'TATA',
+                                'BAJAJ',
+                                'Toyota',
+                                'Mazda',
+                                'Audi',
+                                'Ford',
+                                'BMW',
+                                'Mitsubishi',
                             ];
 
 
@@ -377,13 +382,44 @@ include "db_connect.php";
                                 labels: labelduo,
                                 datasets: [{
                                     label: 'Designation',
-                                    backgroundColor: ["#00a3fe", "green", "orange", "black", ],
+                                    backgroundColor: ["#00a3fe", "green", "orange", "black",'red','#34e8eb','#eb34eb','#ebd234','#34eb8f'],
 
                                     <?php
-                                    include "designation.php";
+                                    include "brand.php";
                                     ?>
 
-                                    data: [<?php echo "$business" ?>, <?php echo "$gjob" ?>, <?php echo "$pjob" ?>, <?php echo "$student" ?>],
+                                    data: [<?php echo "$honda" ?>, <?php echo "$tata" ?>, <?php echo "$bajaj" ?>, <?php echo "$toyota" ?>, <?php echo "$mazda" ?>, <?php echo "$audi" ?>, <?php echo "$ford" ?>,<?php echo "$bmw" ?>,<?php echo "$mitsubishi" ?>],
+                                }]
+                            };
+
+
+                           
+                        const labelbar2 = [
+                            'Jan.',
+                            'Feb.',
+                            'Mar.',
+                            'Apr.',
+                            'May.',
+                            'Jun.',
+                            'Jul.',
+                            'Aug.',
+                            'Sep.',
+                            'Oct.',
+                            'Nov.',
+                            'Dec.'
+                        ];
+
+                            const data4 = {
+                                labels: labelbar2,
+                                datasets: [{
+                                    label: 'Booking',
+                                    backgroundColor: ["#00a3fe", "green", "orange", "black",'red','#34e8eb','#eb34eb','#ebd234','#34eb8f'],
+
+                                    <?php
+                                    include "brand.php";
+                                    ?>
+
+                                    data: [<?php echo "$honda" ?>, <?php echo "$tata" ?>, <?php echo "$bajaj" ?>, <?php echo "$toyota" ?>, <?php echo "$mazda" ?>, <?php echo "$audi" ?>, <?php echo "$ford" ?>,<?php echo "$bmw" ?>,<?php echo "$mitsubishi" ?>],
                                 }]
                             };
 
@@ -400,19 +436,15 @@ include "db_connect.php";
 
 
                             const config3 = {
-                                type: 'polarArea',
-                                data: data,
+                                type: 'pie',
+                                data: data3,
                                 options: {}
                             };
-                            const config5 = {
-                                type: 'radar',
-                                data: data,
-                                options: {}
-                            };
+                        
                             const config4 = {
 
-                                type: 'doughnut',
-                                data: data3,
+                                type: 'bar',
+                                data: data4,
                                 options: {}
                             };
                         </script>
@@ -434,7 +466,7 @@ include "db_connect.php";
                     <div id="box1">
 
                         <div>
-                            <canvas id="lastChart" style=" width: 300px;height: 400px;"></canvas>
+                            <canvas id="lastChart" style=" width: 500px;height: 400px;"></canvas>
                         </div>
 
 
@@ -449,29 +481,11 @@ include "db_connect.php";
 
                     </div>
 
-                    <script>
-                        const labelpie2 = [
-                            'Dhaka',
-                            'Khulna',
-                            'Rajshahi',
-                            'Chattigram',
-                            'Barishal',
-                            'Sylhet',
-                            'Mymenesing',
-                        ];
-                        const data4 = {
-                            labels: labelpie2,
-                            datasets: [{
-                                label: 'Designation',
-                                backgroundColor: ["#e32636", "#ffbf00", "#00ffff", "#000000", "#0000ff", "green", "#00a3fe"],
+                 
 
-                                <?php
-                                include "city.php";
-                                ?>
 
-                                data: [<?php echo "$dhaka" ?>, <?php echo "$khulna" ?>, <?php echo "$rajshahi" ?>, <?php echo "$chattigram" ?>, <?php echo "$barishal" ?>, <?php echo "$sylhet" ?>, <?php echo "$mymenesing" ?>],
-                            }]
-                        };
+
+                      
                     </script>
 
 
