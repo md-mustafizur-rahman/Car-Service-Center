@@ -72,6 +72,7 @@ body {
   text-decoration: none;
   color: var(--white);
 }
+
 .navigation ul li:hover a,
 .navigation ul li.hovered a {
   color: var(--blue);
@@ -483,7 +484,7 @@ body {
 }
 #box1 {
   width: 55%;
-  height: 500px;
+  height: 400px;
   box-shadow: 2px 2px 10px black;
   border-radius: 30px;
   display: flex;
@@ -491,12 +492,21 @@ body {
   align-items: center;
 }
 #box2 {
-
   width: 30%;
-  height: 500px;
+  height: 400px;
   box-shadow: 2px 2px 10px black;
   border-radius: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+#box3 {
+  width: 80%;
+  height: 400px;
+  box-shadow: 2px 2px 10px black;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

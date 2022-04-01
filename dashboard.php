@@ -24,7 +24,7 @@ include "db_connect.php";
                 <li>
                     <a href="#">
                         <span class="icon">
-                            <ion-icon name="logo-apple"></ion-icon>
+                            <ion-icon name="car"></ion-icon>
                         </span>
                         <span class="title">Car Shop</span>
                     </a>
@@ -112,7 +112,7 @@ include "db_connect.php";
 
 
 
-                    
+
                     <div class="box">
 
                         <?php
@@ -148,7 +148,7 @@ include "db_connect.php";
 
                     <div id="box1">
                         <div>
-                            <canvas id="myChart" style=" width: 800px;height: 500px;"></canvas>
+                            <canvas id="myChart" style=" width: 500px;height: 400px;"></canvas>
 
                         </div>
 
@@ -174,6 +174,7 @@ include "db_connect.php";
                                 'Mymenesing',
                             ];
 
+
                             const data = {
                                 labels: labels,
                                 datasets: [{
@@ -193,19 +194,24 @@ include "db_connect.php";
 
 
 
+
                             const data1 = {
                                 labels: labelpie,
                                 datasets: [{
                                     label: 'Designation',
-                                    backgroundColor: ["#e32636", "#ffbf00", "#00ffff", "#000000", "#0000ff","green","#00a3fe"],
+                                    backgroundColor: ["#e32636", "#ffbf00", "#00ffff", "#000000", "#0000ff", "green", "#00a3fe"],
 
                                     <?php
                                     include "city.php";
                                     ?>
 
-                                    data: [<?php echo "$dhaka" ?>, <?php echo "$khulna" ?>, <?php echo "$rajshahi" ?>, <?php echo "$chattigram" ?>,<?php echo "$barishal" ?>,<?php echo "$sylhet" ?>,<?php echo "$mymenesing" ?>],
+                                    data: [<?php echo "$dhaka" ?>, <?php echo "$khulna" ?>, <?php echo "$rajshahi" ?>, <?php echo "$chattigram" ?>, <?php echo "$barishal" ?>, <?php echo "$sylhet" ?>, <?php echo "$mymenesing" ?>],
                                 }]
                             };
+
+
+
+
 
                             const config = {
                                 type: 'bar',
@@ -250,9 +256,240 @@ include "db_connect.php";
 
                     </div>
 
+
                 </div>
+
+                <div class="category">
+                    <script>
+                        const labelline = [
+                            'Only For Wash',
+                            'AC Problem',
+                            'Start Problem',
+                            'CNG Conversation',
+                            'light Problem',
+                            'Tire Change',
+
+                        ];
+
+
+                        const data2 = {
+                            labels: labelline,
+                            datasets: [{
+                                label: 'Car Problem',
+                                backgroundColor: ["#00a3fe", "green", "orange", "black", ],
+
+                                <?php
+                                include "carProblem.php";
+                                ?>
+
+
+                                data: [<?php echo "$onlywash" ?>, <?php echo "$acproblem" ?>, <?php echo "$startproblem" ?>, <?php echo "$cngconversation" ?>, <?php echo "$lightproblem" ?>, <?php echo "$sylhet" ?>, <?php echo "$tirechange" ?>],
+                            }]
+                        };
+
+
+
+
+
+
+
+                        const config2 = {
+
+                            type: 'line',
+                            data: data2,
+                            options: {
+
+
+
+                                display: true,
+                                text: (ctx) => 'Point Style: ' + ctx.chart.data.datasets[0].pointStyle,
+
+
+                            },
+                        };
+                    </script>
+
+
+                    <div id="box3">
+                        <div>
+                            <canvas width="700px" id="lineChart"></canvas>
+                        </div>
+
+                        <script>
+                            const lineChart = new Chart(
+                                document.getElementById('lineChart'),
+                                config2
+                            );
+                        </script>
+
+
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <section class="category">
+
+
+                    <div id="box1">
+                        <div>
+                            <canvas id="duoChart" style=" width: 500px;height: 400px;"></canvas>
+
+                        </div>
+
+
+
+
+                        <script>
+                            const labelduo = [
+                                'Business',
+                                'Givernment Job Holder',
+                                'Private Job Holder',
+                                'Student',
+                            ];
+
+
+
+
+                            const data3 = {
+                                labels: labelduo,
+                                datasets: [{
+                                    label: 'Designation',
+                                    backgroundColor: ["#00a3fe", "green", "orange", "black", ],
+
+                                    <?php
+                                    include "designation.php";
+                                    ?>
+
+                                    data: [<?php echo "$business" ?>, <?php echo "$gjob" ?>, <?php echo "$pjob" ?>, <?php echo "$student" ?>],
+                                }]
+                            };
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            const config3 = {
+                                type: 'duo',
+                                data: data,
+                                options: {}
+                            };
+                            const config4 = {
+
+                                type: 'pie',
+                                data: data3,
+                                options: {}
+                            };
+                        </script>
+                        <script>
+                            const duoChart = new Chart(
+                                document.getElementById('duoChart'),
+                                config2
+                            );
+                        </script>
+
+
+                    </div>
+
+
+
+
+
+
+                    <div id="box2">
+
+                        <div>
+                            <canvas id="lastChart" style=" width: 300px;height: 400px;"></canvas>
+                        </div>
+
+
+
+                        <script>
+                            const lastChart = new Chart(
+                                document.getElementById('lastChart'),
+                                config4
+                            );
+                        </script>
+
+
+                    </div>
+
+                    <script>
+                        const labelpie2 = [
+                            'Dhaka',
+                            'Khulna',
+                            'Rajshahi',
+                            'Chattigram',
+                            'Barishal',
+                            'Sylhet',
+                            'Mymenesing',
+                        ];
+                        const data4 = {
+                            labels: labelpie2,
+                            datasets: [{
+                                label: 'Designation',
+                                backgroundColor: ["#e32636", "#ffbf00", "#00ffff", "#000000", "#0000ff", "green", "#00a3fe"],
+
+                                <?php
+                                include "city.php";
+                                ?>
+
+                                data: [<?php echo "$dhaka" ?>, <?php echo "$khulna" ?>, <?php echo "$rajshahi" ?>, <?php echo "$chattigram" ?>, <?php echo "$barishal" ?>, <?php echo "$sylhet" ?>, <?php echo "$mymenesing" ?>],
+                            }]
+                        };
+                    </script>
+
+
+                </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             </div>
         </div>
+    </div>
 
 
 
@@ -263,11 +500,11 @@ include "db_connect.php";
 
 
 
-        <script src="js/main.js"></script>
+    <script src="js/main.js"></script>
 
 
-        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>
