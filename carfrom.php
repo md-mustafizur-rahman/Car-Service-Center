@@ -179,6 +179,7 @@ include "db_connect.php";
 
 <?php
 
+
 $brand = $_POST['brand'];
 $model = $_POST['model'];
 $caretype = $_POST['caretype'];
@@ -237,7 +238,7 @@ if (isset($_POST['submit'])) {
     window.location.href='carfrom.php';</script>";
     echo "Work successfully";
   } else {
-    echo "Error: " . $sqlcar . "<br>" . $con->error;
+    // echo "Error: " . $sqlcar . "<br>" . $con->error;
   }
 
   $con->close();

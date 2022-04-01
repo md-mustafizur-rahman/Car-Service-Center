@@ -1,4 +1,4 @@
-<?php 
+<?php
 include "db_connect.php";
 ?>
 
@@ -42,7 +42,7 @@ include "db_connect.php";
               <form action="index.php" method="POST">
                 <input type="text" class="inputfrom" id="name" name="name" placeholder="Enter Name" required />
 
-                <input type="email" class="inputfrom" id="name" name="email" placeholder="Enter Email address" required/>
+                <input type="email" class="inputfrom" id="name" name="email" placeholder="Enter Email address" required />
 
                 <input type="text" class="inputfrom" id="name" name="mobile" placeholder="Enter Phone number" required />
 
@@ -88,10 +88,10 @@ include "db_connect.php";
 
 
                 </select>
-                  <div class="botton1">
-                    <input type="submit" value="Next" id="btn1" name="next" />
-                  </div>
-              
+                <div class="botton1">
+                  <input type="submit" value="Next" id="btn1" name="next" />
+                </div>
+
 
               </form>
             </div>
@@ -121,9 +121,9 @@ if (isset($_POST['next'])) {
   if ($con->query($sql) === TRUE) {
     echo "<script>
     window.location.href='carfrom.php';</script>";
-    echo "Work successfully";
+    // echo "Work successfully";
   } else {
-    echo "Error: " . $sql . "<br>" . $con->error;
+    // echo "Error: " . $sql . "<br>" . $con->error;
   }
 
   $con->close();
